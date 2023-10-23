@@ -1,0 +1,21 @@
+* {
+    margin: 0 auto;
+}
+
+.logo {
+    width: 5%;
+}
+
+.luminosity div {
+    height: 20px;
+    align-items: center;
+}
+
+.off {
+    opacity: 50%;
+    width: 20%;
+}
+
+.on {
+    width: 20%;
+}
