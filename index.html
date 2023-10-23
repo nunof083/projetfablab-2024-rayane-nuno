@@ -4,19 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maison FabLab</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <header>
-        <a href=""><img class="logo" src="./images/maison connectée_orange.png" alt="logo"></a>
+        <a href=""><img class="logo" src="./style/img/maison connectée_orange.png" alt="logo"></a>
     </header>
     <main>
-        <section class="luminosity">
-            <div>
-                <img class="off" src="./images/ampouleon.jpg" alt="ampouleoff">
-                <img class="on" src="./images/ampouleon.jpg" alt="ampouleon">
+        <section>
+            <div class="maindiv">
+                <div class="luminosityoff">
+                <div class="allbutton" id="myButtonAmp" onclick="addEventListener()">
+                    <img id="ampouleImg" class="off" src="./style/img/ampouleoff.png" alt="ampouleoff">
+                </div>
+                </div>
+                <!-- <div class="porte">
+                    <a href=""><img class="porteimg" src="./style/img/porte.png" alt="porte"></a>
+                </div> -->
+                <div class="inputrange">
+                    <form action="" method="get">
+                        <label for="range">Montant</label>
+                        <input class="range" type="range" name="range" id="range">
+                    </form>
+                </div>
             </div>
+            <div class="maindiv">
+                <div class="luminosityoff">
+                    <div class="allbutton" id="myButtonGaz" onclick="addEventListener()">
+                        <img id="gazImg" class="gaz" src="./style/img/chauffageoff.png" alt="chauffage">
+                    </div>
+                </div>
+                <div class="inputrange">
+                    <form action="" method="get">
+                        <label for="range">Montant</label>
+                        <input class="range" type="range" name="range" id="range">
+                    </form>
+                </div>
+            </div>   
         </section>
     </main>
+    <script>
+        const ampouleImg = document.getElementById("ampouleImg");
+        const gazImg = document.getElementById("gazImg");
+        const myButtonAmp = document.getElementById("myButtonAmp");
+        const myButtonGaz = document.getElementById("myButtonGaz")
+
+        myButtonAmp.addEventListener("click", function() {
+            if (ampouleImg.src.endsWith("ampouleoff.png")) {
+                ampouleImg.src = "./style/img/ampouleon.png";
+            } else {
+                ampouleImg.src = "./style/img/ampouleoff.png";
+            }
+        });
+
+        myButtonGaz.addEventListener("click", function() {
+            if (gazImg.src.endsWith("chauffageoff.png")) {
+                gazImg.src = "./style/img/chauffageon.png";
+            } else {
+                gazImg.src = "./style/img/chauffageoff.png";
+            }
+        });
+    </script>
 </body>
 </html>

@@ -3,19 +3,50 @@
 }
 
 .logo {
-    width: 5%;
+    width: 10%;
 }
 
-.luminosity div {
-    height: 20px;
-    align-items: center;
+header {
+    background-color: rgb(72, 13, 183);
 }
 
 .off {
     opacity: 50%;
+    width: 100px;
+}
+
+.maindiv {
+    margin-top: 20px;
+    margin-left: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.luminosityoff {
+    margin-right: 30px;
+}
+
+.porte{
     width: 20%;
 }
 
-.on {
-    width: 20%;
+.porteimg {
+    width: 40%;
+}
+
+.inputrange{
+    width: 70%;
+}
+
+.chauffage {
+    width: 200px;
+}
+
+.gaz {
+    width: 30%;
+}
+
+.allbutton {
+    color: blue;
+    width: 200px;
 }
