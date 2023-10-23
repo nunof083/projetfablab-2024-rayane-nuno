@@ -1,14 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maison FabLab</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./style/style.css" />
+  </head>
+  <body>
     <header>
-        <a href=""><img class="logo" src="./images/maison connectée_orange.png" alt="logo"></a>
+      <a href="">
+        <img
+          class="logo"
+          src="./style/img/maison_connectée_orange.png"
+          alt="logo"
+      /></a>
     </header>
-</body>
+    <main>
+      <section>
+        <div class="lumiere"></div>
+        <div class="gaz">
+          <h> Chauffage de la maison :</h>
+          <button
+            onclick="changeImage('chauffage,','./style/img/chauffage.png','./style/img/chauffage allume.png')"
+          ></button>
+          <img1
+            class="logo"
+            src="./style/img/chauffage.png"
+            alt="chauffage éteint"
+            id="chauffage"
+          />
+        </div>
+      </section>
+    </main>
+  </body>
+  <script>
+    function changeImage(imageId, imgSrc1, imgSrc2) {
+      const imgElement = document.getElementById(imageId);
+      if (imgElement.src.endsWith(imgSrc1)) {
+        imgElement.src = imgSrc2;
+      } else {
+        imgElement.src = imgSrc1;
+      }
+    }
+  </script>
 </html>
