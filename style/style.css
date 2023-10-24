@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body {
     background-color: purple;
 }
@@ -27,3 +28,20 @@ header {
 .rangecss {
     margin-left: 20%;
 }
+=======
+* {
+  margin: 0 auto;
+}
+
+.logo {
+  width: 5%;
+}
+main #gaz {
+  display: flex;
+  height: 200px;
+}
+#gaz #chauffage {
+  width: 100px;
+  height: 100px;
+}
+>>>>>>> main
