@@ -12,58 +12,67 @@
     </header>
     <main>
         <section>
-            <div class="maindiv">
-                <div class="luminosityoff">
-                <div class="allbutton" id="myButtonAmp" onclick="addEventListener()">
-                    <img id="ampouleImg" class="off" src="./style/img/ampouleoff.png" alt="ampouleoff">
+                <div class="lumiere">
+                    <img
+                    class="lampe"
+                    src="./style/img/ampouleoff.png"
+                    alt="lumière"
+                    id="lumiere"
+                    onclick="changeImage('lumiere','style/img/ampouleoff.png','style/img/ampouleon.png')"
+                    />
+                    <img
+                    class="porte"
+                    src="./style/img/porteferme.png"
+                    alt="porte"
+                    id="porteChange"
+                    />
+                    <input class="rangecss" id="myRange" type="range" value="0" min="-1" max="100"/>
                 </div>
+                  <div class="gaz">
+                    <img
+                    class="logo"
+                    src="./style/img/chauffageoff.png"
+                    alt="chauffage"
+                    id="chauffage"
+                    onclick="changeImage('chauffage','style/img/chauffageoff.png','style/img/chauffageon.png')"
+                    />
+                    <input class="rangecss" type="range" value="0" min="0" max="100">
                 </div>
-                <!-- <div class="porte">
-                    <a href=""><img class="porteimg" src="./style/img/porte.png" alt="porte"></a>
-                </div> -->
-                <div class="inputrange">
-                    <form action="" method="get">
-                        <label for="range">Montant</label>
-                        <input class="range" type="range" name="range" id="range">
-                    </form>
-                </div>
-            </div>
-            <div class="maindiv">
-                <div class="luminosityoff">
-                    <div class="allbutton" id="myButtonGaz" onclick="addEventListener()">
-                        <img id="gazImg" class="gaz" src="./style/img/chauffageoff.png" alt="chauffage">
-                    </div>
-                </div>
-                <div class="inputrange">
-                    <form action="" method="get">
-                        <label for="range">Montant</label>
-                        <input class="range" type="range" name="range" id="range">
-                    </form>
-                </div>
-            </div>   
         </section>
     </main>
     <script>
-        const ampouleImg = document.getElementById("ampouleImg");
-        const gazImg = document.getElementById("gazImg");
-        const myButtonAmp = document.getElementById("myButtonAmp");
-        const myButtonGaz = document.getElementById("myButtonGaz")
+        let rangevalue = document.getElementById("myRange")
+        let imgchangevalue = document.getElementById("porteChange")
 
-        myButtonAmp.addEventListener("click", function() {
-            if (ampouleImg.src.endsWith("ampouleoff.png")) {
-                ampouleImg.src = "./style/img/ampouleon.png";
-            } else {
-                ampouleImg.src = "./style/img/ampouleoff.png";
-            }
-        });
 
-        myButtonGaz.addEventListener("click", function() {
-            if (gazImg.src.endsWith("chauffageoff.png")) {
-                gazImg.src = "./style/img/chauffageon.png";
-            } else {
-                gazImg.src = "./style/img/chauffageoff.png";
+        rangevalue.oninput = function() {
+            let getvalue = rangevalue.value;
+             
+            if (getvalue > 16 && getvalue < 33) {
+                imgchangevalue.setAttribute("src", "./style/img/porteentreouverte.png")
+            } else if (getvalue >= 33 && getvalue < 66) {
+                imgchangevalue.setAttribute("src", "./style/img/porteouverte.png")
+            }  else if (getvalue >= 66 && getvalue <= 100) {
+                imgchangevalue.setAttribute("src", "./style/img/porteouverte180.png")
+            }  else if (getvalue < 16) {
+                imgchangevalue.setAttribute("src", "./style/img/porteferme.png")
             }
-        });
-    </script>
+        }
+            
+        
+        function changeImage(imageId, imgSrc1, imgSrc2) {
+            const imgElement = document.getElementById(imageId);
+            let etatLampe = 0;
+
+          if (imgElement.src.endsWith(imgSrc1)) {
+                imgElement.src = imgSrc2;
+                etatLampe = 1;
+          } else {
+                imgElement.src = imgSrc1;
+                etatLampe = 0;
+          }
+          fetch("http://localhost:8080/lampe?on="+etatLampe)
+        }
+      </script>
 </body>
 </html>

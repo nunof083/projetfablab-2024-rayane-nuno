@@ -1,5 +1,5 @@
-* {
-    margin: 0 auto;
+body {
+    background-color: purple;
 }
 
 .logo {
@@ -10,43 +10,20 @@ header {
     background-color: rgb(72, 13, 183);
 }
 
-.off {
-    opacity: 50%;
-    width: 100px;
-}
 
-.maindiv {
+.lumiere, .gaz {
     margin-top: 20px;
-    margin-left: 50px;
+    margin-left: 10%;
     display: flex;
     align-items: center;
 }
 
-.luminosityoff {
-    margin-right: 30px;
+
+.porte, .lampe {
+    width: 90px;
+    height: 110px;
 }
 
-.porte{
-    width: 20%;
-}
-
-.porteimg {
-    width: 40%;
-}
-
-.inputrange{
-    width: 70%;
-}
-
-.chauffage {
-    width: 200px;
-}
-
-.gaz {
-    width: 30%;
-}
-
-.allbutton {
-    color: blue;
-    width: 200px;
+.rangecss {
+    margin-left: 20%;
 }
