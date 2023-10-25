@@ -1,15 +1,14 @@
 <!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maison FabLab</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="./style/style.css">
 </head>
 <body>
     <header>
-        <a href=""><img class="logo" src="./style/img/maison connectée_orange.png" alt="logo"></a>
+        <a href=""><img class="maison" src="./style/img/maison connectée_orange.png" alt="logo"></a>
     </header>
     <main>
         <section>
@@ -27,7 +26,9 @@
                     alt="porte"
                     id="porteChange"
                     />
-                    <input class="rangecss" id="myRange" type="range" value="0" min="-1" max="100"/>
+                    <div class="rangecss">
+                        <input type="range" id="myRange" value="0" min="-1" max="100"/>
+                    </div>
                 </div>
                   <div class="gaz">
                     <img
@@ -37,7 +38,7 @@
                     id="chauffage"
                     onclick="changeImage('chauffage','style/img/chauffageoff.png','style/img/chauffageon.png')"
                     />
-                    <input class="rangecss" type="range" value="0" min="0" max="100">
+                    <input type="range" value="0" min="0" max="100">
                 </div>
         </section>
     </main>
@@ -47,7 +48,7 @@
 
 
         rangevalue.oninput = function() {
-            let getvalue = rangevalue.value;
+            const getvalue = rangevalue.value;
              
             if (getvalue > 16 && getvalue < 33) {
                 imgchangevalue.setAttribute("src", "./style/img/porteentreouverte.png")
@@ -65,7 +66,7 @@
             const imgElement = document.getElementById(imageId);
             let etatLampe = 0;
 
-          if (imgElement.src.endsWith(imgSrc1)) {
+          if (imgElement.src.includes(imgSrc1)) {
                 imgElement.src = imgSrc2;
                 etatLampe = 1;
           } else {
@@ -77,45 +78,3 @@
       </script>
 </body>
 </html>
-=======
-    <link rel="stylesheet" href="./style/style.css" />
-  </head>
-  <body>
-    <header>
-      <a href="">
-        <img
-          class="logo"
-          src="./style/img/maison_connectée_orange.png"
-          alt="logo"
-      /></a>
-    </header>
-    <main>
-      <section>
-        <div class="lumiere"></div>
-        <div class="gaz">
-          <h> Chauffage de la maison :</h>
-          <button
-            onclick="changeImage('chauffage,','./style/img/chauffage.png','./style/img/chauffage allume.png')"
-          ></button>
-          <img1
-            class="logo"
-            src="./style/img/chauffage.png"
-            alt="chauffage éteint"
-            id="chauffage"
-          />
-        </div>
-      </section>
-    </main>
-  </body>
-  <script>
-    function changeImage(imageId, imgSrc1, imgSrc2) {
-      const imgElement = document.getElementById(imageId);
-      if (imgElement.src.endsWith(imgSrc1)) {
-        imgElement.src = imgSrc2;
-      } else {
-        imgElement.src = imgSrc1;
-      }
-    }
-  </script>
-</html>
->>>>>>> main
