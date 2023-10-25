@@ -1,6 +1,10 @@
-<<<<<<< HEAD
+
 body {
-    background-color: purple;
+    background-color: rgb(223, 148, 223);
+}
+
+.maison {
+    width: 10%;
 }
 
 .logo {
@@ -8,15 +12,21 @@ body {
 }
 
 header {
+    border: 5px solid black;
     background-color: rgb(72, 13, 183);
+    border-radius: 90px;
 }
 
 
 .lumiere, .gaz {
     margin-top: 20px;
-    margin-left: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     align-items: center;
+    border: 1px solid black;
+    border-radius: 3px;
+    color: rgba()
 }
 
 
@@ -25,23 +35,10 @@ header {
     height: 110px;
 }
 
-.rangecss {
-    margin-left: 20%;
-}
-=======
-* {
-  margin: 0 auto;
+.porte {
+    margin-left: 200px;
 }
 
-.logo {
-  width: 5%;
+.rangecss {
+    margin-left: 60%;
 }
-main #gaz {
-  display: flex;
-  height: 200px;
-}
-#gaz #chauffage {
-  width: 100px;
-  height: 100px;
-}
->>>>>>> main
