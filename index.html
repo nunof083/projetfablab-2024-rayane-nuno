@@ -13,54 +13,54 @@
     </header>
     <main>
         <section>
-                <div class="element">
-                    <button class="boutoneffet">
-                        <img
-                        class="lampe"
-                        src="./style/img/ampouleoff.png"
-                        alt="lumière"
-                        id="lumiere"
-                        onclick="changeImage('lumiere','style/img/ampouleoff.png','style/img/ampouleon.png')"
-                        />
-                    </button>
+            <div class="element">
+                <button class="boutoneffet">
                     <img
-                    class="porte"
-                    src="./style/img/porteferme.png"
-                    alt="porte"
-                    id="porteChange"
+                    class="lampe"
+                    src="./style/img/ampouleoff.png"
+                    alt="lumière"
+                    id="lumiere"
+                    onclick="changeImage('lumiere','style/img/ampouleoff.png','style/img/ampouleon.png')"
                     />
-                    <input class="rangecss" type="range" id="myRange" value="0" min="0" max="128"/>
+                </button>
+                <img
+                class="porte"
+                src="./style/img/porteferme.png"
+                alt="porte"
+                id="porteChange"
+                />
+                <input class="rangecss" type="range" id="myRange" value="0" min="0" max="128"/>
+            </div>
+              <div class="gaz">
+                <button class="boutoneffet">
+                <img
+                src="./style/img/chauffageoff.png"
+                alt="chauffage"
+                id="chauffage"
+                onclick="changeImage('chauffage','style/img/chauffageoff.png','style/img/chauffageon.png')"
+                />
+                </button>
+                <div>
+                <img 
+                class="fenetre" 
+                src="./style/img/fenetreferme.png" 
+                alt="fenetre" 
+                id="fenetreChange"
+                />
                 </div>
-                  <div class="gaz">
-                    <button class="boutoneffet">
-                    <img
-                    src="./style/img/chauffageoff.png"
-                    alt="chauffage"
-                    id="chauffage"
-                    onclick="changeImage('chauffage','style/img/chauffageoff.png','style/img/chauffageon.png')"
-                    />
-                    </button>
-                    <div>
-                    <img 
-                    class="fenetre" 
-                    src="./style/img/fenetreferme.png" 
-                    alt="fenetre" 
-                    id="fenetreChange"
-                    />
-                    </div>
-                    <input class="rangecss2" type="range" id="myRange2" value="0" min="0" max="128"
-                    onclick="changeEtat('fenetreChange','/style/img/fenetreferme.png','/style/img/fenetreentreouverte.png','/style/img/fenetreouverte.png','/style/img/fenetreouverte180.png', this)"
-                    />
-                </section>
-                <section>
-                    <img 
-                    class="ventilateur"
-                    src="./style/img/ventilateuroff.png" 
-                    alt="ventilateur" 
-                    id="ventilateur" 
-                    onclick="changeImage('ventilateur','style/img/ventilateuroff.png','style/img/ventilateuron.gif')"
-                    />
+                <input class="rangecss2" type="range" id="myRange2" value="0" min="0" max="128"
+                onclick="changeEtat('fenetreChange','/style/img/fenetreferme.png','/style/img/fenetreentreouverte.png','/style/img/fenetreouverte.png','/style/img/fenetreouverte180.png', this)"
+                />
             </section>
+            <section>
+                <img 
+                class="ventilateur"
+                src="./style/img/ventilateuroff.png" 
+                alt="ventilateur" 
+                id="ventilateur" 
+                onclick="changeImage('ventilateur','style/img/ventilateuroff.png','style/img/ventilateuron.gif')"
+                />
+        </section>
     </main>
     <script>
         function changeEtat(
