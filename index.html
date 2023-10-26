@@ -9,71 +9,112 @@
 <body>
     <header>
         <a href=""><img class="maison" src="./style/img/maison connectée_orange.png" alt="logo"></a>
+        <h1>Maison connectée</h1>
     </header>
     <main>
         <section>
-                <div class="lumiere">
-                    <img
-                    class="lampe"
-                    src="./style/img/ampouleoff.png"
-                    alt="lumière"
-                    id="lumiere"
-                    onclick="changeImage('lumiere','style/img/ampouleoff.png','style/img/ampouleon.png')"
-                    />
+                <div class="element">
+                    <button class="boutoneffet">
+                        <img
+                        class="lampe"
+                        src="./style/img/ampouleoff.png"
+                        alt="lumière"
+                        id="lumiere"
+                        onclick="changeImage('lumiere','style/img/ampouleoff.png','style/img/ampouleon.png')"
+                        />
+                    </button>
                     <img
                     class="porte"
                     src="./style/img/porteferme.png"
                     alt="porte"
                     id="porteChange"
                     />
-                    <div class="rangecss">
-                        <input type="range" id="myRange" value="0" min="-1" max="100"/>
-                    </div>
+                    <input class="rangecss" type="range" id="myRange" value="0" min="0" max="128"/>
                 </div>
                   <div class="gaz">
+                    <button class="boutoneffet">
                     <img
-                    class="logo"
                     src="./style/img/chauffageoff.png"
                     alt="chauffage"
                     id="chauffage"
                     onclick="changeImage('chauffage','style/img/chauffageoff.png','style/img/chauffageon.png')"
                     />
-                    <input type="range" value="0" min="0" max="100">
-                </div>
-        </section>
+                    </button>
+                    <div>
+                    <img 
+                    class="fenetre" 
+                    src="./style/img/fenetreferme.png" 
+                    alt="fenetre" 
+                    id="fenetreChange"
+                    />
+                    </div>
+                    <input class="rangecss2" type="range" id="myRange2" value="0" min="0" max="128"
+                    onclick="changeEtat('fenetreChange','/style/img/fenetreferme.png','/style/img/fenetreentreouverte.png','/style/img/fenetreouverte.png','/style/img/fenetreouverte180.png', this)"
+                    />
+                </section>
+                <section>
+                    <img 
+                    class="ventilateur"
+                    src="./style/img/ventilateuroff.png" 
+                    alt="ventilateur" 
+                    id="ventilateur" 
+                    onclick="changeImage('ventilateur','style/img/ventilateuroff.png','style/img/ventilateuron.gif')"
+                    />
+            </section>
     </main>
     <script>
-        let rangevalue = document.getElementById("myRange")
-        let imgchangevalue = document.getElementById("porteChange")
-
-
-        rangevalue.oninput = function() {
-            const getvalue = rangevalue.value;
-             
-            if (getvalue > 16 && getvalue < 33) {
-                imgchangevalue.setAttribute("src", "./style/img/porteentreouverte.png")
-            } else if (getvalue >= 33 && getvalue < 66) {
-                imgchangevalue.setAttribute("src", "./style/img/porteouverte.png")
-            }  else if (getvalue >= 66 && getvalue <= 100) {
-                imgchangevalue.setAttribute("src", "./style/img/porteouverte180.png")
-            }  else if (getvalue < 16) {
-                imgchangevalue.setAttribute("src", "./style/img/porteferme.png")
-            }
-        }
-            
-        
-        function changeImage(imageId, imgSrc1, imgSrc2) {
-            const imgElement = document.getElementById(imageId);
-            let etatLampe = 0;
-
-          if (imgElement.src.includes(imgSrc1)) {
-                imgElement.src = imgSrc2;
-                etatLampe = 1;
-          } else {
-                imgElement.src = imgSrc1;
-                etatLampe = 0;
+        function changeEtat(
+          imgId,
+          imgSrc1,
+          imgSrc2,
+          imgSrc3,
+          imgSrc4,
+          rangeElement
+        ) {
+          const imgElement = document.getElementById(imgId);
+          const getvalue = rangeElement.value;
+          let angle = 0;
+  
+          if (getvalue > 32 && getvalue < 64) {
+            imgElement.setAttribute("src", imgSrc2);
+          } else if (getvalue >= 64 && getvalue < 96) {
+            imgElement.setAttribute("src", imgSrc3);
+          } else if (getvalue >= 96 && getvalue <= 128) {
+            imgElement.setAttribute("src", imgSrc4);
+          } else if (getvalue < 32) {
+            imgElement.setAttribute("src", imgSrc1);
           }
-          fetch("http://localhost:8080/lampe?on="+etatLampe)
+          if (getvalue < 32) {
+            angle = 25;
+          } else if (getvalue >= 32 && getvalue < 64) {
+            angle = 51;
+          } else if (getvalue >= 64 && getvalue <= 128) {
+            angle = 77;
+          } else {
+            angle = 100;
+          }
+          const reponse = fetch(
+            "http://localhost:8080/" + imgId + "?on=" + angle
+          );
+        }
+  
+        async function changeImage(imageId, imgSrc1, imgSrc2) {
+          const imgElement = document.getElementById(imageId);
+          let etat = 0;
+  
+          if (imgElement.src.includes(imgSrc1)) {
+            imgElement.src = imgSrc2;
+            etat = 1;
+          } else {
+            imgElement.src = imgSrc1;
+            etat = 0;
+          }
+          const reponse = await fetch(
+            "http://localhost:8080/" + imageId + "?on=" + etat
+          );
+          const data = await reponse.json();
+          console.log(data);
+          alert(data.result);
         }
       </script>
 </body>
